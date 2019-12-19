@@ -94,6 +94,8 @@
                                  <li><code>php artisan migrate</code> to migrate the LaraSnap migrations.</li>
                                  <li><code>php artisan db:seed --class=SettingsTableSeeder</code> to seed Settings Seeder(modifying the migration files may cause issue while seeding).</li>
                               </ul>
+                              <p>Once migration & seeding is completed, open the application's default <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</p>
+                              <p>Refer <a class="scrollto" href="#customization1">Overriding Default User Model</a> section(Point #3) for modifying the default User Model.</p>
                               <div class="callout-block callout-danger">
                                  <div class="icon-holder">
                                     <i class="fas fa-exclamation-triangle"></i>
@@ -199,11 +201,11 @@
                         <section id="customization" class="doc-section customization">
                            <h2 class="section-title">Customization</h2>
                            <div id="customization1"  class="section-block">
-                              <h3 class="block-title">Overriding User Management</h3>
+                              <h3 class="block-title">Overriding Default User Model</h3>
                               <ul class="list">
                                  <li> LaraSnap removes <code class="custom">name</code> column from the default laravel <code class="custom">users</code> table & adds a new table <code class="custom">userprofiles</code> for storing user information. </li>
                                  <li>LaraSnap is designed to built admin panel with no global user registration. If the application needs global user registration simply remove the <code class="custom">name</code> field from the default laravel registration form or modify the default laravel registration logic's or feel free to copy the LaraSnap User Management codes & modify the User Management logic as per needed.</li>
-                                 <li>Now, open your <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</li>
+                                 <li>Now, open the application's default <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</li>
                               </ul>
                               <pre class="code">
         class User extends \LaraSnap\LaravelAdmin\Models\User
@@ -212,7 +214,7 @@
         } 
         
 </pre>
-                              <p>Modify the $fillable array with the following code</p>
+                              <p>Also modify the $fillable array with the following code</p>
                               <pre class="code">
     protected $fillable = [
         'email', 'password', 'status', 'created_by', 'last_login_at', 'last_login_ip',
@@ -257,7 +259,7 @@
                            </nav>
                            <a class="nav-link scrollto" href="#customization">Customization</a>
                            <nav class="doc-sub-menu nav flex-column">
-                              <a class="nav-link scrollto" href="#customization1">Overriding User Management</a>
+                              <a class="nav-link scrollto" href="#customization1">Overriding Default User Model</a>
                               <a class="nav-link scrollto" href="#customization2">Adding additional settings</a>
                            </nav>
                         </nav>
