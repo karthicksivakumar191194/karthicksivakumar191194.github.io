@@ -127,7 +127,7 @@
                               <p>LaraSnap comes with Roles, Permissions, Screens out of the box. Each User has a Role which has a set of Permissions and roles are mapped to screen. User can access the screen only if the role mapped to user, has privileage to access the screen.</p>
                               <div id="roles">
                                  <h6>Roles</h6>
-                                 <p>The Roles section allows you to add, edit, delete roles and assign permission to role.</p>
+                                 <p>The Roles section allows you to add, edit, delete roles, assign permissions to role and assign screens to roles.</p>
                               </div>
                               <div id="permissions">
                                  <h6>Permissions</h6>
@@ -137,6 +137,7 @@
                                  <h6>Screens</h6>
                                  <p>The Screens section allows you to add, edit, delete screens and assign roles to screen.</p>
                               </div>
+                              <strong>NOTE: <code class="custom">Assigning Roles to Screen</code> is built with 2 way-binding mechanism, you can assign roles to screen (or) screens to role.</strong>
                            </div>
                            <div id="menu-management"  class="section-block">
                               <h3 class="block-title">Menu Management</h3>
@@ -147,7 +148,7 @@
                               <p>If you need custom menu design for your web app you can pass a second argument to the menu display method telling it that you want to stylize the menu with custom styles like so:
                                  <code>menu('main', 'custom');</code> and add the custom design file to the <code class="custom">resources/views/menus/template/custom.blade.php</code> (The blade name needs to match the second argument passed to the menu function).
                               </p>
-                              <strong>Menu Management is built with cache mechanism, this will cache the menu and avoid rendering the menu from DB on every request.</strong>
+                              <strong>NOTE: Menu Management is built with cache mechanism, this will cache the menu and avoid rendering the menu from DB on every request.</strong>
                            </div>
                            <div id="site-settings"  class="section-block">
                               <h3 class="block-title">Site Settings</h3>
