@@ -85,7 +85,7 @@
                                  <li> Publish LaraSnap Asset files.</li>
                                  <li> Add LaraSnap routes to application's <code class="custom">routes\web.php</code> file.</li>
                               </ul>
-                              <p>To change the <code>php artisan larasnap:admin-install</code> command default flow, run <code>php artisan larasnap:admin-install --config</code> command to publish the config file, open the <code class="custom">larasnap config</code> file & turn off the config options(larasnap.admin_install.*) which you like not to perform during LaraSnap installation process & run <code>php artisan larasnap:admin-install</code> command.</p>
+                              <p>To change the <code>php artisan larasnap:admin-install</code> command default flow, run <code>php artisan larasnap:admin-install --config</code> command to publish the config file, open the <code class="custom">larasnap config</code> file & turn off the config options(larasnap.admin_install.*) which you like not to perform during LaraSnap installation process & run <code>php artisan larasnap:admin-install</code> command again to complete the installation.</p>
                            </div>
                            <div id="step3"  class="section-block">
                               <h3 class="block-title">Step Three</h3>
@@ -114,6 +114,10 @@
                               </div>
                               <p>After that, run <code>composer dump-autoload</code> to finish your installation!</p>
                               <p>Visit <code class="custom">your_domain.com/admin</code> to access admin panel.</p>
+                              <p>LaraSnap default installation imports dummy data to the application, a user has been created for you with the following login credentials:</p>
+                              <p style="margin-bottom: 0px;"><strong>email:</strong> admin@admin.com</p>
+                              <p><strong>password:</strong> password</p>
+                              <strong>NOTE: LaraSnap general configs are added in the <code class="custom">config/larasnap.php</code> file. Feel free to modify the config values based on your needs.</strong>
                            </div>
                         </section>
                         <section id="core-concepts" class="doc-section core-concepts">
@@ -127,7 +131,7 @@
                               <p>LaraSnap comes with Roles, Permissions, Screens out of the box. Each User has a Role which has a set of Permissions and roles are mapped to screen. User can access the screen only if the role mapped to user, has privileage to access the screen.</p>
                               <div id="roles">
                                  <h6>Roles</h6>
-                                 <p>The Roles section allows you to add, edit, delete roles, assign permissions to role and assign screens to roles.</p>
+                                 <p>The Roles section allows you to add, edit, delete roles, assign permissions to role and assign screens to role.</p>
                               </div>
                               <div id="permissions">
                                  <h6>Permissions</h6>
@@ -144,6 +148,7 @@
                               <p>With LaraSnap you can easily create menus for your application. In fact the LaraSnap admin is using the menu builder for the navigation you use on the left hand side.</p>
                               <p>You can add, edit, or delete any current menu. This means that you can create a new menu for the header, sidebar, or footer of your site. Create as many menus as you would like.</p>
                               <p>When you are ready to add menu items to your menu you can click on the builder button of the corresponding menu.</p>
+                              <p><code class="custom">Menu Item accepts both Static URL & Dynamic Route for adding URL</code>. Dynamic Route is recommended only for developers. Its manadatory to add <code class="custom">parameters</code> for the routes which requries parameters, missing the parameters or adding incorrect parameter will throw error in the application.</p>
                               <p>After creating and configuring your menu, you can easily implement that menu in your application. Say that we have a menu called <code class="custom">main</code>. Inside of any view file we could now output the menu by using the following code <code>menu('main');</code>.This will output your menu in a bootstrap(default) style.</p>
                               <p>If you need custom menu design for your web app you can pass a second argument to the menu display method telling it that you want to stylize the menu with custom styles like so:
                                  <code>menu('main', 'custom');</code> and add the custom design file to the <code class="custom">resources/views/menus/template/custom.blade.php</code> (The blade name needs to match the second argument passed to the menu function).
@@ -272,7 +277,7 @@
       </div>
       <footer id="footer" class="footer text-center">
          <div class="container">
-            <small class="copyright">Copyright © LaraSnap 2019</small>
+            <small class="copyright">Copyright © LaraSnap <script>document.write(new Date().getFullYear())</script></small>
          </div>
       </footer>
       <!-- Main Javascript -->          
