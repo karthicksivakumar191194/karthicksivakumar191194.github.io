@@ -11,6 +11,7 @@
       <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
       <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+          <link rel="stylesheet" href="assets/plugins/lightbox/dist/ekko-lightbox.css">
       <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
       <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
    </head>
@@ -242,6 +243,20 @@
                               <b>NOTE:</b> The <code class="custom">setting name</code> added on the <code class="custom">config file, form field name & value added on the seeder for this setting</code> should be same.(Eg. admin_email - This name should be same on the 'config file', form field name & seeder(ie)value for the 'name' column on the table - settings).
                            </div>
                         </section>
+                        <section id="db-schema" class="doc-section">
+                           <h2 class="section-title">DB Schema</h2>
+                           <div class="section-block">
+                                <p>LaraSnap database schema diagram. The below schema diagram represents the description of a database structure, tables, columns, data types, and the constraints on the database.</p>
+                           </div>
+                           <div class="screenshot-holder">
+                               <a href="assets/images/larannapDBSchema.png" data-title="DB Schema" data-toggle="lightbox">
+                                    <img class="img-fluid" src="assets/images/larannapDBSchema.png" alt="db schema">
+                               </a>
+                               <a class="mask" href="assets/images/larannapDBSchema.png" data-title="DB Schema" data-toggle="lightbox">
+                                    ><svg class="svg-inline--fa fa-search-plus fa-w-16 icon" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="search-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 192v32c0 6.6-5.4 12-12 12h-56v56c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-56h-56c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h56v-56c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v56h56c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z"></path></svg>
+                               </a>
+                           </div>
+                        </section>   
                      </div>
                   </div>
                   <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -271,6 +286,7 @@
                               <a class="nav-link scrollto" href="#customization1">Overriding Default User Model</a>
                               <a class="nav-link scrollto" href="#customization2">Adding additional settings</a>
                            </nav>
+                           <a class="nav-link scrollto" href="#db-schema">DB Schema</a>
                         </nav>
                      </div>
                   </div>
@@ -287,7 +303,8 @@
       <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
       <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
-      <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+      <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>   
+      <script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>      
       <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
       <script type="text/javascript" src="assets/js/main.js"></script>
    </body>
