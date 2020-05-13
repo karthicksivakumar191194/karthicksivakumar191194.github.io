@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="">
+      <meta name="description" content="LaraSnap Documentation">
       <meta name="author" content="karthick">
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
       <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
@@ -46,7 +46,7 @@
                               <p>Welcome to the LaraSnap documentation. This documentation will teach you how to install, configure, and use LaraSnap.
                               </p>
                               <p>LaraSnap is simply an admin for your Laravel app. Whatever you want your app to do on the front-end is completely up to you. You are in control of your application and you can use LaraSnap to make your life easier by adding new users, adding roles, adding permission, adding screens, assigning roles to user, assigning screens to roles, creating menus, and many other administrative tasks.</p>
-                              <a href="#" class="btn btn-green" target="_blank"><i class="fas fa-download"></i> Download LaraSnap</a>
+                              <a href="https://packagist.org/packages/larasnap/laravel-admin" class="btn btn-green" target="_blank"><i class="fas fa-download"></i> Download LaraSnap</a>
                            </div>
                            <div class="section-block">
                                <img src="assets/images/larasnap.gif" style="width:100%;">
@@ -56,10 +56,10 @@
                            <h2 class="section-title">Installation</h2>
                            <div id="step1"  class="section-block">
                               <h3 class="block-title">Step One</h3>
-                              <p>LaraSnap requires fresh Laravel 6.x installation. You can include the LaraSnap composer package to your laravel application with the following command:
+                              <p>LaraSnap requires fresh Laravel installation. You can include the LaraSnap composer package to your laravel application with the following command:
                               </p>
                               <div class="code-block">
-                                 <p><code>composer require ---</code></p>
+                                 <p><code>composer require larasnap/laravel-admin</code></p>
                               </div>
                               <p>Next make sure to create a new database and add your database credentials to your <code class="custom">.env</code> file, you will also want to add your application URL in the APP_URL variable:</p>
                               <div class="code-block">
@@ -83,20 +83,22 @@
                               </div>
                               <h6>The command will do the following</h6>
                               <ul class="list">
-                                 <li>Copy LaraSnap Migration & initial files.</li>
+                                 <li> Publish LaraSnap Migration & Seeder files to yor application.</li>
+                                 <li> Publish <code class="custom">Auth/LoginController</code> & <code class="custom">Auth/RegisterController</code></li>
                                  <li> Publish LaraSnap Config file.</li>
                                  <li> Publish LaraSnap View files.</li>
-                                 <li> Publish LaraSnap Asset files.</li>
+                                 <li> Publish LaraSnap Assets(css & js) files.</li>
                                  <li> Add LaraSnap routes to application's <code class="custom">routes\web.php</code> file.</li>
                               </ul>
-                              <p>To change the <code>php artisan larasnap:admin-install</code> command default flow, run <code>php artisan larasnap:admin-install --config</code> command to publish the config file, open the <code class="custom">larasnap config</code> file & turn off the config options(larasnap.admin_install.*) which you like not to perform during LaraSnap installation process & run <code>php artisan larasnap:admin-install</code> command again to complete the installation.</p>
+                              <p>When running the <code>php artisan larasnap:admin-install</code> command second time or multiple times, the older copy of the files will be removed & new copy of the files will be published from LaraSnap package, this causes application down if you modified any codes on the package published files. To overcome this, open the <b>larasnap config</b> file <code class="custom">(config/larasnap.php)</code> & turn off the config options <b>larasnap.admin_install.*</b> which you like not to perform  & run <code>php artisan larasnap:admin-install</code> command.</p>
+                              <p><strong> Run <code>composer dump-autoload</code> to regenerates all classes that need to be included in the project.</strong></p>
                            </div>
                            <div id="step3"  class="section-block">
                               <h3 class="block-title">Step Three</h3>
                               <p>Once LaraSnap admin installation is completed successfully, run</p>
                               <ul class="list no-list">
                                  <li><code>php artisan migrate</code> to migrate the LaraSnap migrations.</li>
-                                 <li><code>php artisan db:seed --class=SettingsTableSeeder</code> to seed Settings Seeder(modifying the migration files may cause issue while seeding).</li>
+                                 <li><code>php artisan db:seed --class=LaraSnapSeeder</code> to seed Default User, Admin Menu & Settings Seeder(modifying the default LaraSnap migration files may cause issue while seeding).</li>
                               </ul>
                               <p>Once migration & seeding is completed, open the application's default <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</p>
                               <p>Refer <a class="scrollto" href="#customization1">Overriding Default User Model</a> section(Point #3) for modifying the default User Model.</p>
@@ -116,7 +118,8 @@
                 }</pre>
                                  </div>
                               </div>
-                              <p>After that, run <code>composer dump-autoload</code> to finish your installation!</p>
+                              <p>Run <strong>php artisan storage:link</strong> Artisan command to create the symbolic link & its <strong>manadatory</strong>.
+                               <p><strong>GENERAL NOTE:</strong> If you have removed <strong>public</strong> from the SITE URL, you can configure the asset URL by setting the <strong>ASSET_URL</strong> variable in your <strong>.env</strong> file instead of manually modifying all the asset() function. Eg: ASSET_URL = your_domain.com/public</p>
                               <p>Visit <code class="custom">your_domain.com/admin</code> to access admin panel.</p>
                               <p>LaraSnap default installation imports dummy data to the application, a user has been created for you with the following login credentials:</p>
                               <p style="margin-bottom: 0px;"><strong>email:</strong> admin@admin.com</p>
@@ -152,8 +155,8 @@
                               <p>With LaraSnap you can easily create menus for your application. In fact the LaraSnap admin is using the menu builder for the navigation you use on the left hand side.</p>
                               <p>You can add, edit, or delete any current menu. This means that you can create a new menu for the header, sidebar, or footer of your site. Create as many menus as you would like.</p>
                               <p>When you are ready to add menu items to your menu you can click on the builder button of the corresponding menu.</p>
-                              <p><code class="custom">Menu Item accepts both Static URL & Dynamic Route for adding URL</code>. Dynamic Route is recommended only for developers. Its manadatory to add <code class="custom">parameters</code> for the routes which requries parameters, missing the parameters or adding incorrect parameter will throw error in the application.</p>
-                              <p>After creating and configuring your menu, you can easily implement that menu in your application. Say that we have a menu called <code class="custom">main</code>. Inside of any view file we could now output the menu by using the following code <code>menu('main');</code>.This will output your menu in a bootstrap(default) style.</p>
+                              <p><b>Menu Item accepts both Static URL & Dynamic Route for adding URL</b>. Dynamic Route is recommended only for developers. Its manadatory to add <b>parameters</b> for the routes which requries parameters, missing the parameters or adding incorrect parameter will throw error in the application.</p>
+                              <p>After creating and configuring your menu, you can easily implement that menu in your application. Say that we have a menu called <b>main</b>. Inside of any view file we could now output the menu by using the following code <code>menu('main');</code>.This will output your menu in a bootstrap(default) style.</p>
                               <p>If you need custom menu design for your web app you can pass a second argument to the menu display method telling it that you want to stylize the menu with custom styles like so:
                                  <code>menu('main', 'custom');</code> and add the custom design file to the <code class="custom">resources/views/menus/template/custom.blade.php</code> (The blade name needs to match the second argument passed to the menu function).
                               </p>
@@ -162,7 +165,7 @@
                            <div id="site-settings"  class="section-block">
                               <h3 class="block-title">Site Settings</h3>
                               <p>The Settings section allows you to configure any site wide settings you would like.</p>
-                              <p>You can use the setting on the application on blade template, controller or on any other file by doing the following: <code>setting('site_name')</code> <code class="custom">site_name</code> is the name of the setting.</p>
+                              <p>You can use the setting on the application on blade template, controller or on any other file by doing the following: <code>setting('site_name')</code> <b>site_name</b> is the name of the setting.</p>
                               <b>Default Settings</b>
                               <div class="table-responsive">
                                  <table class="table table-bordered">
@@ -175,31 +178,31 @@
                                     <tbody>
                                        <tr>
                                           <td>site_name</td>
-                                          <td>This setting is used to set <code class="custom">name</code> of the application. This <code class="custom">name</code> will be displayed on the header, footer, left sidebar on the admin panel & other sections where the site name is needed.</td>
+                                          <td>This setting is used to set <b>name</b> of the application. This <b>name</b> will be displayed on the header, footer, left sidebar on the admin panel & other sections where the site name is needed.</td>
                                        </tr>
                                        <tr>
                                           <td>site_logo</td>
-                                          <td>This setting is used to set <code class="custom">logo</code> of the application. This <code class="custom">logo</code> will be displayed on the left sidebar on the admin panel & other sections where the site logo is needed.</td>
+                                          <td>This setting is used to set <b>logo</b> of the application. This <b>logo</b> will be displayed on the left sidebar on the admin panel & other sections where the site logo is needed.</td>
                                        </tr>
                                        <tr>
                                           <td>admin_email</td>
-                                          <td>This setting is used to set <code class="custom">admin email</code> of the application.</td>
+                                          <td>This setting is used to set <b>admin email</b> of the application.</td>
                                        </tr>
                                        <tr>
                                           <td>date_format</td>
-                                          <td>This setting is used to set default <code class="custom">date format</code> of the application. This <code class="custom">date format</code> will be used when displaying <code class="custom">date</code>.</td>
+                                          <td>This setting is used to set default <b>date format</b> of the application. This <b>date format</b> will be used when displaying <b>date</b>.</td>
                                        </tr>
                                        <tr>
                                           <td>date_time_format</td>
-                                          <td>This setting is used to set default <code class="custom">date & time format</code> of the application. This <code class="custom">date & time format</code> will be used when displaying <code class="custom">both date & time</code>.</td>
+                                          <td>This setting is used to set default <b>date & time format</b> of the application. This <b>date & time format</b> will be used when displaying <b>both date & time</b>.</td>
                                        </tr>
                                        <tr>
                                           <td>time_format</td>
-                                          <td>This setting is used to set default <code class="custom">time format</code> of the application. This <code class="custom">time format</code> will be used when displaying <code class="custom">time</code>.</td>
+                                          <td>This setting is used to set default <b>time format</b> of the application. This <b>time format</b> will be used when displaying <b>time</b>.</td>
                                        </tr>
                                        <tr>
                                           <td>entries_per_page</td>
-                                          <td>This setting is used to set <code class="custom">entries per page limit</code> on the list pages.(ie.)used to set how many entries needs to be displayed on the list pages.</td>
+                                          <td>This setting is used to set <b>entries per page limit</b> on the list pages.(ie.)used to set how many entries needs to be displayed on the list pages.</td>
                                        </tr>
                                     </tbody>
                                  </table>
@@ -213,8 +216,8 @@
                            <div id="customization1"  class="section-block">
                               <h3 class="block-title">Overriding Default User Model</h3>
                               <ul class="list">
-                                 <li> LaraSnap removes <code class="custom">name</code> column from the default laravel <code class="custom">users</code> table & adds a new table <code class="custom">userprofiles</code> for storing user information. </li>
-                                 <li>LaraSnap is designed to built admin panel with no global user registration. If the application needs global user registration simply remove the <code class="custom">name</code> field from the default laravel registration form or modify the default laravel registration logic's or feel free to copy the LaraSnap User Management codes & modify the User Management logic as per needed.</li>
+                                 <li> LaraSnap removes <code class="custom">name</code> column from the default laravel <code class="custom">users</code> table & adds new table <code class="custom">userprofiles</code> for storing user additional information. </li>
+                                 <li>LaraSnap is designed to built admin panel with no global user registration but it doesn't stops you completely from registering through frontend(laravel default registeration), if you like to continue with the larasnap setup simply remove the <code class="custom">name</code> field from the default laravel registration form & you can use the frontend registeration form as well. If you like to modify the registeration flow, feel free to modify the application's <strong>Auth/RegisterController</strong> file(before modifying please view the DB Schema of the User Table).</li>
                                  <li>Now, open the application's default <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</li>
                               </ul>
                               <pre class="code">
@@ -224,7 +227,7 @@
         } 
         
 </pre>
-                              <p>Also modify the $fillable array with the following code</p>
+                              <p>Also modify the <strong>$fillable</strong> array with the following code</p>
                               <pre class="code">
     protected $fillable = [
         'email', 'password', 'status', 'created_by', 'last_login_at', 'last_login_ip',
@@ -233,14 +236,26 @@
 </pre>
                            </div>
                            <div id="customization2"  class="section-block">
+                              <h3 class="block-title">Restricting Link or Button based on User Role</h3>
+                              <p>To restrict a link or button based on the user role on the blade file use <code class="custom">@canAccess</code> directive , the first parameter is the <b>route name</b> and its required. </p>       
+<pre class="code">
+    @canAccess('users.show')
+           // link or button HTML goes here
+    @endcanAccess
+    
+</pre>
+<p style="margin-bottom: 5px;">Here, if screen based authentication is set for the route(screen) <b>users.show</b>, only the users who have permission to view the screen can only view the HTML content added inside the directive.</p>
+<p style="margin-bottom: 0px;"><b>Real Time Usage:</b> If you have set screen based authentication for the User View screen, and added the link for the User View Screen on the User List Screen, now if you want to show this link only to the users who have permission for the User View Screen, you can wrap the User View Link with <b> @canAccess</b> directive.</p>
+                           </div>
+                           <div id="customization3"  class="section-block">
                               <h3 class="block-title">Adding additional settings</h3>
                               <p>If you want to add new setting to the application, follow below the steps</p>
                               <ul>
-                                 <li>Add the setting <code class="custom">name</code> to the <code class="custom">larasnap config file</code>(config key - site_settings).</li>
+                                 <li>Add the setting <b>name</b> to the <code class="custom">larasnap config</code> file(config key - site_settings).</li>
                                  <li>Create a new field in <code class="custom">views/settings/create.blade.php</code> file.</li>
-                                 <li>Create a new <code class="custom">seeder</code> for adding the <code class="custom">setting name</code> default value.</li>
+                                 <li>Create a new <b>seeder</b> for adding the <b>setting name</b> default value.</li>
                               </ul>
-                              <b>NOTE:</b> The <code class="custom">setting name</code> added on the <code class="custom">config file, form field name & value added on the seeder for this setting</code> should be same.(Eg. admin_email - This name should be same on the 'config file', form field name & seeder(ie)value for the 'name' column on the table - settings).
+                              <b>NOTE:</b> The <b>setting name</b> added on the <b>config file, form field name & value added on the seeder for this setting</b> should be same.(Eg. admin_email - This name should be same on the 'config file', form field name & seeder(ie)value for the 'name' column on the table - settings).
                            </div>
                         </section>
                         <section id="db-schema" class="doc-section">
@@ -284,7 +299,8 @@
                            <a class="nav-link scrollto" href="#customization">Customization</a>
                            <nav class="doc-sub-menu nav flex-column">
                               <a class="nav-link scrollto" href="#customization1">Overriding Default User Model</a>
-                              <a class="nav-link scrollto" href="#customization2">Adding additional settings</a>
+                              <a class="nav-link scrollto" href="#customization2">Restricting Link or Button based on User Role</a>
+                              <a class="nav-link scrollto" href="#customization3">Adding additional settings</a>
                            </nav>
                            <a class="nav-link scrollto" href="#db-schema">DB Schema</a>
                         </nav>
