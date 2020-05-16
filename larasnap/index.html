@@ -90,6 +90,7 @@
                                  <li> Publish LaraSnap Assets(css & js) files.</li>
                                  <li> Add LaraSnap routes to application's <code class="custom">routes\web.php</code> file.</li>
                               </ul>
+                              <p><strong>NOTE:</strong> Please do install the laravel authentication package(laravel/ui) before installing LaraSnap, if you completed LaraSnap installation already please run the LaraSnap installation again to fix the conflicts in Auth/LoginController & Auth/RegisterController.</p>
                               <p>When running the <code>php artisan larasnap:admin-install</code> command second time or multiple times, the older copy of the files will be removed & new copy of the files will be published from LaraSnap package, this causes application down if you modified any codes on the package published files. To overcome this, open the <b>larasnap config</b> file <code class="custom">(config/larasnap.php)</code> & turn off the config options <b>larasnap.admin_install.*</b> which you like not to perform  & run <code>php artisan larasnap:admin-install</code> command.</p>
                               <p><strong> Run <code>composer dump-autoload</code> to regenerates all classes that need to be included in the project.</strong></p>
                            </div>
