@@ -1441,7 +1441,10 @@ select {
 .doc-sub-sub-menu a {
     padding-left: 68px !important;
 }
-
+.no-table-border td, .no-table-border th {
+    border: none;
+    padding: 0px;
+}
 @media (max-width: 575.98px) {
   .main-search-box {
     width: 100%;

@@ -132,22 +132,22 @@
                            <h2 class="section-title">Core Concepts</h2>
                            <div id="user-management"  class="section-block">
                               <h3 class="block-title">User Management</h3>
-                              <p>The User Management section allows you to add, edit, view, delete user and assign role to user.</p>
+                              <p>The User Management module allows you to add, edit, view, delete user and assign role to user.</p>
                            </div>
                            <div id="role-management"  class="section-block">
                               <h3 class="block-title">Role Management</h3>
                               <p>LaraSnap comes with Roles, Permissions, Screens out of the box. Each User has a Role which has a set of Permissions and roles are mapped to screen. User can access the screen only if the role mapped to user, has privileage to access the screen.</p>
                               <div id="roles">
                                  <h6>Roles</h6>
-                                 <p>The Roles section allows you to add, edit, delete roles, assign permissions to role and assign screens to role.</p>
+                                 <p>The Roles module allows you to add, edit, delete roles, assign permissions to role and assign screens to role.</p>
                               </div>
                               <div id="permissions">
                                  <h6>Permissions</h6>
-                                 <p>The Permissions section allows you to add, edit, delete permissions.</p>
+                                 <p>The Permissions module allows you to add, edit, delete permissions.</p>
                               </div>
                               <div id="screens">
                                  <h6>Screens</h6>
-                                 <p>The Screens section allows you to add, edit, delete screens, map screen to module and assign roles to screen.</p>
+                                 <p>The Screens module you to add, edit, delete screens, map screen to module and assign roles to screen.</p>
                               </div>
                               <strong>NOTE: <code class="custom">Assigning Roles to Screen</code> is built with 2 way-binding mechanism, you can assign roles to screen (or) screens to role.</strong>
                            </div>
@@ -163,10 +163,23 @@
                               </p>
                               <strong>NOTE: Menu Management is built with cache mechanism, this will cache the menu and avoid rendering the menu from DB on every request.</strong>
                            </div>
+                           <div id="category-management"  class="section-block">
+                              <h3 class="block-title">Category Management</h3>
+                              <p>With LaraSnap you can easily create/manage categories for any module instanlly & use them on them on the application</p>
+                              <div id="parent-categories">
+                                 <h6>Parent Categories</h6>
+                                 <p>The Categories module allows you to add, edit, delete parent categories and manage the categories mapped under it.</p>
+                              </div>
+                              <div id="categories">
+                                 <h6>Categories</h6>
+                                 <p>The Categories module allows you to add, edit, delete categories and option for making the category as parent, for mapping other categories to this category.</p>
+                              </div>
+                              <p>You can get the list of all the active categories using the following helper: <code>getCategoriesByParentCategory($parentCategorySlug, $orderByColumn, $orderByDirection)</code>, here <b>$parentCategorySlug</b> is required argument and <b>$orderByColumn</b>, <b>$orderByDirection</b> are optional arguments. If the values for <b>$orderByColumn</b> and <b>$orderByDirection</b> are not passed by default it will retrieve the category list by label in asc order.</p>
+                           </div>
                            <div id="site-settings"  class="section-block">
                               <h3 class="block-title">Site Settings</h3>
-                              <p>The Settings section allows you to configure any site wide settings you would like.</p>
-                              <p>You can use the setting on the application on blade template, controller or on any other file by doing the following: <code>setting('site_name')</code> <b>site_name</b> is the name of the setting.</p>
+                              <p>The Settings module allows you to configure any site wide settings you would like.</p>
+                              <p>You can use the setting on the application on blade template, controller or on any other file by doing the following: <code>setting('site_name')</code> <b>site_name</b> is the name of the setting. Similary you can use the other settings, by adding the respective setting name to the helper.</p>
                               <b>Default Settings</b>
                               <div class="table-responsive">
                                  <table class="table table-bordered">
@@ -269,8 +282,35 @@
                                     <img class="img-fluid" src="assets/images/larannapDBSchema.png" alt="db schema">
                                </a>
                                <a class="mask" href="assets/images/larannapDBSchema.png" data-title="DB Schema" data-toggle="lightbox">
-                                    ><svg class="svg-inline--fa fa-search-plus fa-w-16 icon" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="search-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 192v32c0 6.6-5.4 12-12 12h-56v56c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-56h-56c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h56v-56c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v56h56c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z"></path></svg>
+                                    <svg class="svg-inline--fa fa-search-plus fa-w-16 icon" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="search-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 192v32c0 6.6-5.4 12-12 12h-56v56c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-56h-56c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h56v-56c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v56h56c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z"></path></svg>
                                </a>
+                           </div>
+                        </section> 
+                        <section id="releases" class="doc-section">  
+                           <h2 class="section-title">Releases</h2>
+                           <div class="section-block">
+                              <div class="table-responsive">
+                                 <table class="table table-bordered no-table-border">
+                                    <tbody>
+                                       <tr>
+                                           <td><p><strong>v1.0.0</strong></p></td>
+                                           <td><p>Initial Release.</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p><strong>v1.1.0</strong></p></td>
+                                           <td><p>Modified role based screen authentication logics to improve security.</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p><strong>v1.2.0</strong></p></td>
+                                           <td><p>Added Module Management for grouping screens to module.</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p><strong>v1.3.0</strong></p></td>
+                                           <td><p>Added Category Management.</p></td>
+                                       </tr>
+                                     </tbody>
+                                  </table>          
+                                </div>
                            </div>
                         </section>   
                      </div>
@@ -295,6 +335,7 @@
                                  <a class="nav-link scrollto" href="#screens">Screens</a>
                               </nav>
                               <a class="nav-link scrollto" href="#menu-management">Menu Management</a>
+                              <a class="nav-link scrollto" href="#category-management">Category Management</a>
                               <a class="nav-link scrollto" href="#site-settings">Site Settings</a>
                            </nav>
                            <a class="nav-link scrollto" href="#customization">Customization</a>
@@ -304,6 +345,7 @@
                               <a class="nav-link scrollto" href="#customization3">Adding additional settings</a>
                            </nav>
                            <a class="nav-link scrollto" href="#db-schema">DB Schema</a>
+                           <a class="nav-link scrollto" href="#releases">Releases</a>
                         </nav>
                      </div>
                   </div>
