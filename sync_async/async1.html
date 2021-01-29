@@ -1,0 +1,41 @@
+<html>
+	<body>
+		<p><a href="./index.html">Back</a></p>
+		<script>
+			console.log('start');
+			
+			console.log('mid');
+									
+			/*						
+			const userObj = loginUser('test@test.com', 'password');
+			console.log(userObj);
+			
+			function loginUser(email, password){
+				console.log('loginUser func log');
+				setTimeout(function(){
+					return {username: 'test'};
+				}, 3000);
+			}
+			
+			//If we add the return statement of function inside timeout, it will be undefined
+			*/
+			
+			//To fix the undefined error mentioned above						
+			loginUser('test@test.com', 'password', function(userObj){
+				console.log(userObj);
+			});
+			
+			function loginUser(email, password, callback){
+				console.log('loginUser func log');
+				setTimeout(function(){
+					callback({username: 'test'});
+				}, 3000);
+			}
+						
+			console.log('end');
+
+		</script>
+
+	</body>
+</html>
+
