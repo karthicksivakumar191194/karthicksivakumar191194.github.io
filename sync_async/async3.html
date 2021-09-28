@@ -1,0 +1,38 @@
+<html>
+	<body>
+		<p><a href="./index.html">Back</a></p>
+		<script>
+			console.log('start');
+			
+			console.log('mid');
+														
+			async functionn promiseTest(){
+				//synchronous style code...
+				try{
+					const res  = await loginUser('test@test.com', 'password');
+					console.log(res);
+				}catch((err) => {
+					console.log(err)
+				})
+			}
+			
+			function loginUser(email, password){
+				
+				const promise = new Promise(function(resolve, reject){
+					setTimeout(function(){
+						resolve({username: 'test'});
+					}, 3000);
+				});
+				
+				return promise;
+			}
+			//When function called return promise here/
+						
+			console.log('end');
+
+		</script>
+
+	</body>
+</html>
+
+<!-- async/await -->

@@ -1,0 +1,50 @@
+<html>
+	<body>
+		<p><a href="./index.html">Back</a></p>
+		<script>
+			console.log('start');
+			
+			console.log('mid');
+														
+			/*
+			const loginuser = loginUser('test@test.com', 'password');
+			console.log(loginuser);
+			
+			This will log <pending> promise
+			*/
+			
+			loginUser('test@test.com', 'password').then(function(res){
+				console.log(res);
+			});
+			
+			/*
+			If we return promise in first then callback, we can use 
+			
+			loginUser('test@test.com', 'password').then(function(res){
+				const promise = ....
+				retun promise;
+			}).then(function(res1){
+				console.log(res1);	
+			});
+			*/
+			
+			function loginUser(email, password){
+				
+				const promise = new Promise(function(resolve, reject){
+					setTimeout(function(){
+						resolve({username: 'test'});
+					}, 3000);
+				});
+				
+				return promise;
+			}
+			//When function called return promise here/
+						
+			console.log('end');
+
+		</script>
+
+	</body>
+</html>
+
+<!-- Promises -->

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>LaraSnap</title>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="LaraSnap Documentation">
+      <meta name="author" content="karthick">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+      <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+          <link rel="stylesheet" href="assets/plugins/lightbox/dist/ekko-lightbox.css">
+      <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css">
+      <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+   </head>
+   <body class="body-green">
+      <div class="page-wrapper">
+         <header id="header" class="header">
+            <div class="container">
+               <div class="branding">
+                  <h1 class="logo">
+                     <a href="index.html">
+                     <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                     <span class="text-highlight">LaraSnap</span><span class="text-bold">Docs</span>
+                     </a>
+                  </h1>
+               </div>
+            </div>
+         </header>
+         <div class="doc-wrapper">
+            <div class="container">
+               <!--
+                  <div id="doc-header" class="doc-header text-center">
+                     <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Quick Start</h1>
+                     <div class="meta"><i class="far fa-clock"></i> Last updated: Dec 19th, 2019</div>
+                  </div>
+                  -->  
+               <div class="doc-body row">
+                  <div class="doc-content col-md-9 col-12 order-1">
+                     <div class="content-inner">
+                        <section id="intro-section" class="intro-section">
+                           <h2 class="section-title">Introduction</h2>
+                           <div class="section-block">
+                              <p>Welcome to the LaraSnap documentation. This documentation will teach you how to install, configure, and use LaraSnap.
+                              </p>
+                              <p>LaraSnap is simply an admin for your Laravel app. Whatever you want your app to do on the front-end is completely up to you. You are in control of your application and you can use LaraSnap to make your life easier by adding new users, adding roles, adding permission, adding screens, assigning roles to user, assigning screens to roles, creating menus, and many other administrative tasks.</p>
+                              <a href="https://packagist.org/packages/larasnap/laravel-admin" class="btn btn-green" target="_blank"><i class="fas fa-download"></i> Download LaraSnap</a>
+                           </div>
+                           <div class="section-block">
+                               <img src="assets/images/larasnap.gif" style="width:100%;">
+                           </div>
+                        </section>
+                        <section id="installation-section" class="doc-section">
+                           <h2 class="section-title">Installation</h2>
+                           <div id="step1"  class="section-block">
+                              <h3 class="block-title">Step One</h3>
+                              <p>LaraSnap requires fresh Laravel installation. You can include the LaraSnap composer package to your laravel application with the following command:
+                              </p>
+                              <div class="code-block">
+                                 <p><code>composer require larasnap/laravel-admin</code></p>
+                              </div>
+                              <p>Next make sure to create a new database and add your database credentials to your <code class="custom">.env</code> file, you will also want to add your application URL in the APP_URL variable:</p>
+                              <div class="code-block">
+                                 <p>
+                                 <pre class="code">
+    APP_URL=http://localhost
+    DB_HOST=localhost
+    DB_DATABASE=homestead
+    DB_USERNAME=homestead
+    DB_PASSWORD=secret
+                                             </pre>
+                                 </p>
+                              </div>
+                           </div>
+                           <div id="step2"  class="section-block">
+                              <h3 class="block-title">Step Two</h3>
+                              <p>To install LaraSnap simply run</p>
+                              <div class="code-block">
+                                 <p><code>php artisan larasnap:admin-install</code></p>
+                                 <p>Service provider will be discovered automatically.</p>
+                              </div>
+                              <h6>The command will do the following</h6>
+                              <ul class="list">
+                                 <li> Publish LaraSnap Migration & Seeder files to yor application.</li>
+                                 <li> Publish <code class="custom">Auth/LoginController</code> & <code class="custom">Auth/RegisterController</code></li>
+                                 <li> Publish LaraSnap Config file.</li>
+                                 <li> Publish LaraSnap View files.</li>
+                                 <li> Publish LaraSnap Assets(css & js) files.</li>
+                                 <li> Add LaraSnap routes to application's <code class="custom">routes\web.php</code> file.</li>
+                              </ul>
+                              <p><strong>NOTE:</strong> Please do install the laravel authentication package(laravel/ui) before installing LaraSnap, if you completed LaraSnap installation already please run the LaraSnap installation again to fix the conflicts in Auth/LoginController & Auth/RegisterController.</p>
+                              <p>When running the <code>php artisan larasnap:admin-install</code> command second time or multiple times, the older copy of the files will be removed & new copy of the files will be published from LaraSnap package, this causes application down if you modified any codes on the package published files. To overcome this, open the <b>larasnap config</b> file <code class="custom">(config/larasnap.php)</code> & turn off the config options <b>larasnap.admin_install.*</b> which you like not to perform  & run <code>php artisan larasnap:admin-install</code> command.</p>
+                              <p><strong> Run <code>composer dump-autoload</code> to regenerates all classes that need to be included in the project.</strong></p>
+                           </div>
+                           <div id="step3"  class="section-block">
+                              <h3 class="block-title">Step Three</h3>
+                              <p>Once LaraSnap admin installation is completed successfully, run</p>
+                              <ul class="list no-list">
+                                 <li><code>php artisan migrate</code> to migrate the LaraSnap migrations.</li>
+                                 <li><code>php artisan db:seed --class=LaraSnapSeeder</code> to seed Default User, Admin Menu & Settings Seeder(modifying the default LaraSnap migration files may cause issue while seeding).</li>
+                              </ul>
+                              <p>Once migration & seeding is completed, open the application's default <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</p>
+                              <p>Refer <a class="scrollto" href="#customization1">Overriding Default User Model</a> section(Point #3) for modifying the default User Model.</p>
+                              <div class="callout-block callout-danger">
+                                 <div class="icon-holder">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                 </div>
+                                 <div class="content">
+                                    <h4 class="callout-title">Specified key was too long error</h4>
+                                    <p>If you see this error message you have an outdated version of MySQL. To fix this you have to edit your AppServiceProvider.php file and inside the boot method set a default string length</p>
+                                    <pre style="color:white; font-family: 'Open Sans', arial, sans-serif;">
+                use Illuminate\Support\Facades\Schema;
+                
+                public function boot()
+                {
+                Schema::defaultStringLength(191);
+                }</pre>
+                                 </div>
+                              </div>
+                              <p>Run <strong>php artisan storage:link</strong> Artisan command to create the symbolic link & its <strong>manadatory</strong>.
+                               <p><strong>GENERAL NOTE:</strong> If you have removed <strong>public</strong> from the SITE URL, you can configure the asset URL by setting the <strong>ASSET_URL</strong> variable in your <strong>.env</strong> file instead of manually modifying all the asset() function. Eg: ASSET_URL = your_domain.com/public</p>
+                              <p>Visit <code class="custom">your_domain.com/admin</code> to access admin panel.</p>
+                              <p>LaraSnap default installation imports dummy data to the application, a user has been created for you with the following login credentials:</p>
+                              <p style="margin-bottom: 0px;"><strong>email:</strong> admin@admin.com</p>
+                              <p><strong>password:</strong> password</p>
+                              <strong>NOTE: LaraSnap general configs are added in the <code class="custom">config/larasnap.php</code> file. Feel free to modify the config values based on your needs.</strong>
+                              <p style="margin-top: 10px;"><strong>To modify the laravel auth UI, use <a href="https://packagist.org/packages/larasnap/laravel-auth-ui" target="_blank">LaraSnap Auth UI Composer Package</a>.</strong></p>
+                           </div>
+                        </section>
+                        <section id="core-concepts" class="doc-section core-concepts">
+                           <h2 class="section-title">Core Concepts</h2>
+                           <div id="user-management"  class="section-block">
+                              <h3 class="block-title">User Management</h3>
+                              <p>The User Management module allows you to add, edit, view, delete user and assign role to user.</p>
+                           </div>
+                           <div id="role-management"  class="section-block">
+                              <h3 class="block-title">Role Management</h3>
+                              <p>LaraSnap comes with Roles, Permissions, Screens out of the box. Each User has a Role which has a set of Permissions and roles are mapped to screen. User can access the screen only if the role mapped to user, has privileage to access the screen.</p>
+                              <div id="roles">
+                                 <h6>Roles</h6>
+                                 <p>The Roles module allows you to add, edit, delete roles, assign permissions to role and assign screens to role.</p>
+                              </div>
+                              <div id="permissions">
+                                 <h6>Permissions</h6>
+                                 <p>The Permissions module allows you to add, edit, delete permissions.</p>
+                              </div>
+                              <div id="screens">
+                                 <h6>Screens</h6>
+                                 <p>The Screens module you to add, edit, delete screens, map screen to module and assign roles to screen.</p>
+                              </div>
+                              <strong>NOTE: <code class="custom">Assigning Roles to Screen</code> is built with 2 way-binding mechanism, you can assign roles to screen (or) screens to role.</strong>
+                              <p>To check if a user has a certain role, you can use the helper <code class="custom">userHasRole('admin')</code> or the  blade directive <code class="custom">@userHasRole('admin')</code>, <b>admin</b> is the name of the role.</p>
+                           </div>
+                           <div id="menu-management"  class="section-block">
+                              <h3 class="block-title">Menu Management</h3>
+                              <p>With LaraSnap you can easily create menus for your application. In fact the LaraSnap admin is using the menu builder for the navigation you use on the left hand side.</p>
+                              <p>You can add, edit, or delete any current menu. This means that you can create a new menu for the header, sidebar, or footer of your site. Create as many menus as you would like.</p>
+                              <p>When you are ready to add menu items to your menu you can click on the builder button of the corresponding menu.</p>
+                              <p><b>Menu Item accepts both Static URL & Dynamic Route for adding URL</b>. Dynamic Route is recommended only for developers. Its manadatory to add <b>parameters</b> for the routes which requries parameters, missing the parameters or adding incorrect parameter will throw error in the application.</p>
+                              <p>After creating and configuring your menu, you can easily implement that menu in your application. Say that we have a menu called <b>main</b>. Inside of any view file we could now output the menu by using the following code <code>menu('main');</code>.This will output your menu in a bootstrap(default) style.</p>
+                              <p>If you need custom menu design for your web app you can pass a second argument to the menu display method telling it that you want to stylize the menu with custom styles like so:
+                                 <code>menu('main', 'custom');</code> and add the custom design file to the <code class="custom">resources/views/menus/template/custom.blade.php</code> (The blade name needs to match the second argument passed to the menu function).
+                              </p>
+                              <strong>NOTE: Menu Management is built with cache mechanism, this will cache the menu and avoid rendering the menu from DB on every request.</strong>
+                           </div>
+                           <div id="category-management"  class="section-block">
+                              <h3 class="block-title">Category Management</h3>
+                              <p>With LaraSnap you can easily create/manage categories for any module instanlly & use them on them on the application</p>
+                              <div id="parent-categories">
+                                 <h6>Parent Categories</h6>
+                                 <p>The Categories module allows you to add, edit, delete parent categories and manage the categories mapped under it.</p>
+                              </div>
+                              <div id="categories">
+                                 <h6>Categories</h6>
+                                 <p>The Categories module allows you to add, edit, delete categories and option for making the category as parent, for mapping other categories to this category.</p>
+                              </div>
+                              <p>You can get the list of all the active categories using the following helper: <code>getCategoriesByParentCategory($parentCategorySlug, $orderByColumn, $orderByDirection)</code>, here <b>$parentCategorySlug</b> is required argument and <b>$orderByColumn</b>, <b>$orderByDirection</b> are optional arguments. If the values for <b>$orderByColumn</b> and <b>$orderByDirection</b> are not passed by default it will retrieve the category list by label in asc order.</p>
+                           </div>
+                           <div id="site-settings"  class="section-block">
+                              <h3 class="block-title">Site Settings</h3>
+                              <p>The Settings module allows you to configure any site wide settings you would like.</p>
+                              <p>You can use the setting on the application on blade template, controller or on any other file by doing the following: <code>setting('site_name')</code> <b>site_name</b> is the name of the setting. Similary you can use the other settings, by adding the respective setting name to the helper.</p>
+                              <b>Default Settings</b>
+                              <div class="table-responsive">
+                                 <table class="table table-bordered">
+                                    <thead>
+                                       <tr>
+                                          <th>Name</th>
+                                          <th>Usage</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr>
+                                          <td>site_name</td>
+                                          <td>This setting is used to set <b>name</b> of the application. This <b>name</b> will be displayed on the header, footer, left sidebar on the admin panel & other sections where the site name is needed.</td>
+                                       </tr>
+                                       <tr>
+                                          <td>site_logo</td>
+                                          <td>This setting is used to set <b>logo</b> of the application. This <b>logo</b> will be displayed on the left sidebar on the admin panel & other sections where the site logo is needed.</td>
+                                       </tr>
+                                       <tr>
+                                          <td>admin_email</td>
+                                          <td>This setting is used to set <b>admin email</b> of the application.</td>
+                                       </tr>
+                                       <tr>
+                                          <td>date_format</td>
+                                          <td>This setting is used to set default <b>date format</b> of the application. This <b>date format</b> will be used when displaying <b>date</b>.</td>
+                                       </tr>
+                                       <tr>
+                                          <td>date_time_format</td>
+                                          <td>This setting is used to set default <b>date & time format</b> of the application. This <b>date & time format</b> will be used when displaying <b>both date & time</b>.</td>
+                                       </tr>
+                                       <tr>
+                                          <td>time_format</td>
+                                          <td>This setting is used to set default <b>time format</b> of the application. This <b>time format</b> will be used when displaying <b>time</b>.</td>
+                                       </tr>
+                                       <tr>
+                                          <td>entries_per_page</td>
+                                          <td>This setting is used to set <b>entries per page limit</b> on the list pages.(ie.)used to set how many entries needs to be displayed on the list pages.</td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                                 <p>Refer <a class="scrollto" href="#customization2">Adding additional settings</a> section for adding custom settings to the application.</p>
+                              </div>
+                           </div>
+                           <strong>NOTE: LaraSnap also has an inbuilt user documentation within the package, with the summary of the Core Concepts.</strong>
+                        </section>
+                        <section id="customization" class="doc-section customization">
+                           <h2 class="section-title">Customization</h2>
+                           <div id="customization1"  class="section-block">
+                              <h3 class="block-title">Overriding Default User Model</h3>
+                              <ul class="list">
+                                 <li> LaraSnap removes <code class="custom">name</code> column from the default laravel <code class="custom">users</code> table & adds new table <code class="custom">userprofiles</code> for storing user additional information. </li>
+                                 <li>LaraSnap is designed to built admin panel with no global user registration but it doesn't stops you completely from registering through frontend(laravel default registeration), if you like to continue with the larasnap setup simply remove the <code class="custom">name</code> field from the default laravel registration form & you can use the frontend registeration form as well. If you like to modify the registeration flow, feel free to modify the application's <strong>Auth/RegisterController</strong> file(before modifying please view the DB Schema of the User Table).</li>
+                                 <li>Now, open the application's default <code class="custom">User-Model</code> (usually app/User.php) and make the class extend <code class="custom">\LaraSnap\LaravelAdmin\Models\User instead of Authenticatable</code>.</li>
+                              </ul>
+                              <pre class="code">
+        class User extends \LaraSnap\LaravelAdmin\Models\User
+        {
+            // ...
+        } 
+        
+</pre>
+                              <p>Also modify the <strong>$fillable</strong> array with the following code</p>
+                              <pre class="code">
+    protected $fillable = [
+        'email', 'password', 'status', 'created_by', 'last_login_at', 'last_login_ip',
+    ];  
+    
+</pre>
+                           </div>
+                           <div id="customization2"  class="section-block">
+                              <h3 class="block-title">Restricting Link or Button based on User Role</h3>
+                              <p>To restrict a link or button based on the user role on the blade file use <code class="custom">@canAccess</code> directive , the first parameter is the <b>route name</b> and its required. </p>       
+<pre class="code">
+    @canAccess('users.show')
+           // link or button HTML goes here
+    @endcanAccess
+    
+</pre>
+<p style="margin-bottom: 5px;">Here, if screen based authentication is set for the route(screen) <b>users.show</b>, only the users who have permission to view the screen can only view the HTML content added inside the directive.</p>
+<p style="margin-bottom: 0px;"><b>Real Time Usage:</b> If you have set screen based authentication for the User View screen, and added the link for the User View Screen on the User List Screen, now if you want to show this link only to the users who have permission for the User View Screen, you can wrap the User View Link with <b> @canAccess</b> directive.</p>
+                           </div>
+                           <div id="customization3"  class="section-block">
+                              <h3 class="block-title">Adding additional settings</h3>
+                              <p>If you want to add new setting to the application, follow below the steps</p>
+                              <ul>
+                                 <li>Add the setting <b>name</b> to the <code class="custom">larasnap config</code> file(config key - site_settings).</li>
+                                 <li>Create a new field in <code class="custom">views/settings/create.blade.php</code> file.</li>
+                                 <li>Create a new <b>seeder</b> for adding the <b>setting name</b> default value.</li>
+                              </ul>
+                              <b>NOTE:</b> The <b>setting name</b> added on the <b>config file, form field name & value added on the seeder for this setting</b> should be same.(Eg. admin_email - This name should be same on the 'config file', form field name & seeder(ie)value for the 'name' column on the table - settings).
+                           </div>
+                        </section>
+                        <section id="db-schema" class="doc-section">
+                           <h2 class="section-title">DB Schema</h2>
+                           <div class="section-block">
+                                <p>LaraSnap database schema diagram. The below schema diagram represents the description of a database structure, tables, columns, data types, and the constraints on the database.</p>
+                           </div>
+                           <div class="screenshot-holder">
+                               <a href="assets/images/larannapDBSchema.png" data-title="DB Schema" data-toggle="lightbox">
+                                    <img class="img-fluid" src="assets/images/larannapDBSchema.png" alt="db schema">
+                               </a>
+                               <a class="mask" href="assets/images/larannapDBSchema.png" data-title="DB Schema" data-toggle="lightbox">
+                                    <svg class="svg-inline--fa fa-search-plus fa-w-16 icon" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="search-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M304 192v32c0 6.6-5.4 12-12 12h-56v56c0 6.6-5.4 12-12 12h-32c-6.6 0-12-5.4-12-12v-56h-56c-6.6 0-12-5.4-12-12v-32c0-6.6 5.4-12 12-12h56v-56c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v56h56c6.6 0 12 5.4 12 12zm201 284.7L476.7 505c-9.4 9.4-24.6 9.4-33.9 0L343 405.3c-4.5-4.5-7-10.6-7-17V372c-35.3 27.6-79.7 44-128 44C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 48.3-16.4 92.7-44 128h16.3c6.4 0 12.5 2.5 17 7l99.7 99.7c9.3 9.4 9.3 24.6 0 34zM344 208c0-75.2-60.8-136-136-136S72 132.8 72 208s60.8 136 136 136 136-60.8 136-136z"></path></svg>
+                               </a>
+                           </div>
+                        </section> 
+                        <section id="releases" class="doc-section">  
+                           <h2 class="section-title">Releases</h2>
+                           <div class="section-block">
+                              <div class="table-responsive">
+                                 <table class="table table-bordered no-table-border">
+                                    <tbody>
+                                       <tr>
+                                           <td><p><strong>v1.0.0</strong></p></td>
+                                           <td><p>Initial Release.</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p><strong>v1.1.0</strong></p></td>
+                                           <td><p>Modified role based screen authentication logics to improve security.</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p><strong>v1.2.0</strong></p></td>
+                                           <td><p>Added Module Management for grouping screens to module.</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p><strong>v1.3.0</strong></p></td>
+                                           <td><p>Added Category Management.</p></td>
+                                       </tr>
+									   <tr>
+                                           <td><p><strong>v1.4.0</strong></p></td>
+                                           <td><p>Performance Optimization.</p></td>
+                                       </tr>
+                                     </tbody>
+                                  </table>          
+                                </div>
+                           </div>
+                        </section>
+						<section id="compatibility" class="doc-section">  
+                           <h2 class="section-title">Compatibility</h2>
+                           <div class="section-block">
+                              <div class="table-responsive">
+                                 <table class="table table-bordered no-table-border">
+                                    <tbody>
+                                       <tr>
+                                           <td><p>Laravel 6.x</p></td>
+                                       </tr>
+                                       <tr>
+                                           <td><p>Laravel 7.x</p></td>
+                                       </tr>
+                                     </tbody>
+                                  </table>          
+                                </div>
+                           </div>
+                        </section>						
+                     </div>
+                  </div>
+                  <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+                     <div id="doc-nav" class="doc-nav">
+                        <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                           <a class="nav-link scrollto" href="#intro-section">Introduction</a>
+                           <a class="nav-link scrollto" href="#installation-section">Installation</a>
+                           <nav class="doc-sub-menu nav flex-column">
+                              <a class="nav-link scrollto" href="#step1">Step One</a>
+                              <a class="nav-link scrollto" href="#step2">Step Two</a>
+                              <a class="nav-link scrollto" href="#step3">Step Three</a>
+                           </nav>
+                           <a class="nav-link scrollto" href="#core-concepts">Core Concepts</a>
+                           <nav class="doc-sub-menu nav flex-column">
+                              <a class="nav-link scrollto" href="#user-management">User Management</a>
+                              <a class="nav-link scrollto" href="#role-management">Role Management</a>
+                              <nav class="doc-sub-sub-menu nav flex-column">
+                                 <a class="nav-link scrollto" href="#roles">Roles</a>
+                                 <a class="nav-link scrollto" href="#permissions">Permissions</a>
+                                 <a class="nav-link scrollto" href="#screens">Screens</a>
+                              </nav>
+                              <a class="nav-link scrollto" href="#menu-management">Menu Management</a>
+                              <a class="nav-link scrollto" href="#category-management">Category Management</a>
+                              <a class="nav-link scrollto" href="#site-settings">Site Settings</a>
+                           </nav>
+                           <a class="nav-link scrollto" href="#customization">Customization</a>
+                           <nav class="doc-sub-menu nav flex-column">
+                              <a class="nav-link scrollto" href="#customization1">Overriding Default User Model</a>
+                              <a class="nav-link scrollto" href="#customization2">Restricting Link or Button based on User Role</a>
+                              <a class="nav-link scrollto" href="#customization3">Adding additional settings</a>
+                           </nav>
+                           <a class="nav-link scrollto" href="#db-schema">DB Schema</a>
+                           <a class="nav-link scrollto" href="#releases">Releases</a>
+                           <a class="nav-link scrollto" href="#compatibility">Compatibility</a>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <footer id="footer" class="footer text-center">
+         <div class="container">
+            <small class="copyright">Copyright © LaraSnap <script>document.write(new Date().getFullYear())</script></small>
+         </div>
+      </footer>
+      <!-- Main Javascript -->          
+      <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+      <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>   
+      <script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>      
+      <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
+      <script type="text/javascript" src="assets/js/main.js"></script>
+   </body>
+</html>

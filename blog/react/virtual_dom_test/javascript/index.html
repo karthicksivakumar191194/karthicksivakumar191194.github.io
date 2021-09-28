@@ -1,0 +1,22 @@
+<html>
+   <head></head>
+   <body>
+      <div id="root"></div>
+   </body>
+   <script> 
+      function updateTime(){
+          var element  = '<div id="updatetime">';
+              element += '<h1>Example of Actual DOM</h1>';
+              element += '<p>Now the time is</p>';
+              element += '<p>'+new Date().toLocaleTimeString()+'</p>';
+              element += '</div>';
+               
+               document.getElementById("root").innerHTML = element;
+      }
+      
+      window.setInterval(updateTime, 1000);
+      
+      console.log ("DEVELOPER NOTE: We added 'setInterval' for '#updatetime', here complete '#updatetime' element is rendering."); 
+      console.log("DEVELOPER NOTE: Chrome Browser - Customize and control Dev Tools > More Tools > Rendering | Elements > Rendering > Paint flashing");
+   </script>
+</html>

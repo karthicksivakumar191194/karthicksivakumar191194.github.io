@@ -1,0 +1,187 @@
+.rc-accordion h5 {
+  font-size: 15px;
+  color: #818181;
+}
+.rc-accordion a {
+  text-decoration: none;
+}
+.rc-accordion .collapsed i {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  font-size: 20px;
+  position: absolute;
+  right: 13px;
+}
+.rc-accordion i {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  font-size: 20px;
+  position: absolute;
+  right: 13px;
+}
+.rc-accordion .card-body {
+  background: #f3f3f3;
+}
+.rc-accordion .card-header {
+  border: none;
+  cursor: pointer;
+}
+.rc-accordion h4 {
+  font-size: 15px;
+  font-weight: 700;
+}
+.rc-accordion .card-body i {
+  margin-right: 5px;
+  color: #a9a9a9;
+  position: inherit;
+  font-size: 15px;
+  -webkit-transform: inherit;
+          transform: inherit;
+}
+.rc-accordion .card {
+  text-align: left;
+}
+
+.rc-multiselect {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px grey solid;
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-height: 42px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rc-multiselect .rc-multiselect-badge {
+  height: 28px;
+  margin: 0 4px;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 0.25rem;
+}
+
+.rc-multiselect .rc-multiselect-badge.rc-multiselect-badge-light {
+  color: #212529;
+  background-color: #f8f9fa;
+}
+
+.rc-multiselect .rc-multiselect-badge button {
+  padding: 6px;
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+}
+
+.rc-multiselect input {
+  border: none;
+  outline: none;
+  width: auto !important;
+  flex: 1 1;
+}
+
+.rc-multiselect-options {
+  max-height: 146px;
+  width: 100%;
+  z-index: 999;
+  overflow-y: scroll;
+  border: 1px grey solid;
+  border-radius: 5px;
+  margin-top: 1px;
+}
+
+.rc-multiselect-options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.rc-multiselect-options::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.rc-multiselect-options::-webkit-scrollbar-thumb {
+  background: #837d7d;
+  border-radius: 10px;
+}
+
+.rc-multiselect-option {
+  padding: 5px;
+  border: 1px solid transparent;
+}
+
+.rc-multiselect-option:hover,
+.rc-multiselect-option-active {
+  background: #e8e6e6;
+  cursor: pointer;
+  border: 1px solid #e8e6e6;
+  outline: none;
+}
+
+.rc-multiselect-option.rc-multiselect-active {
+  background: #0278be;
+  color: #fff;
+  border: 1px solid #0278be;
+}
+
+.rc-multiselect-option.rc-multiselect-selection-exceded-option,
+.rc-multiselect-option.rc-multiselect-loading-option {
+  background: #fff;
+  border: 1px solid #fff;
+}
+
+.rc-multiselect-option.rc-multiselect-selection-exceded-option:hover,
+.rc-multiselect-option.rc-multiselect-loading-option:hover {
+  cursor: default;
+}
+
+.rc-taginput {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px grey solid;
+  border-radius: 5px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-height: 42px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rc-taginput .rc-taginput-badge {
+  height: 28px;
+  margin: 0 4px;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 0.25rem;
+}
+
+.rc-taginput .rc-taginput-badge.rc-taginput-badge-light {
+  color: #212529;
+  background-color: #f8f9fa;
+}
+
+.rc-taginput .rc-taginput-badge button {
+  padding: 6px;
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+}
+
+.rc-taginput input {
+  border: none;
+  outline: none;
+  width: auto !important;
+  flex: 1 1;
+}
+
+
+/*# sourceMappingURL=main.65bbf322.chunk.css.map*/

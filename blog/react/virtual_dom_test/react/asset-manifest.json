@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/blog/react/virtual_dom_test/react/static/css/main.d1b05096.chunk.css",
+    "main.js": "/blog/react/virtual_dom_test/react/static/js/main.b2f4e196.chunk.js",
+    "main.js.map": "/blog/react/virtual_dom_test/react/static/js/main.b2f4e196.chunk.js.map",
+    "runtime-main.js": "/blog/react/virtual_dom_test/react/static/js/runtime-main.950fbd12.js",
+    "runtime-main.js.map": "/blog/react/virtual_dom_test/react/static/js/runtime-main.950fbd12.js.map",
+    "static/js/2.2d628527.chunk.js": "/blog/react/virtual_dom_test/react/static/js/2.2d628527.chunk.js",
+    "static/js/2.2d628527.chunk.js.map": "/blog/react/virtual_dom_test/react/static/js/2.2d628527.chunk.js.map",
+    "index.html": "/blog/react/virtual_dom_test/react/index.html",
+    "precache-manifest.5fd25406467590245e5835db0da12bba.js": "/blog/react/virtual_dom_test/react/precache-manifest.5fd25406467590245e5835db0da12bba.js",
+    "service-worker.js": "/blog/react/virtual_dom_test/react/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/blog/react/virtual_dom_test/react/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.2d628527.chunk.js.LICENSE": "/blog/react/virtual_dom_test/react/static/js/2.2d628527.chunk.js.LICENSE",
+    "static/media/logo.svg": "/blog/react/virtual_dom_test/react/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.950fbd12.js",
+    "static/js/2.2d628527.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.b2f4e196.chunk.js"
+  ]
+}
