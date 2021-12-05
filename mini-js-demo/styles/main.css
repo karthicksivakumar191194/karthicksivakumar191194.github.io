@@ -1,0 +1,16 @@
+body {
+  background-color: #f3f3f3;
+  color: #46535e;
+}
+
+.landing-page {
+  height: 100vh;
+}
+.landing-page ul {
+  list-style: none;
+}
+.landing-page a,
+.landing-page span {
+  text-decoration: none;
+  color: #46535e;
+}
