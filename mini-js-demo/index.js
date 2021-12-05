@@ -6,6 +6,8 @@ import Example1Page from "./src/pages/Example1Page.js";
 import Example2Page from "./src/pages/Example2Page.js";
 import Example3Page from "./src/pages/Example3Page.js";
 
+import * as mainJs from "./scripts/main.js";
+
 const app = new Mini("#app");
 const router = new Router({ basename: "mini-js-demo" });
 
