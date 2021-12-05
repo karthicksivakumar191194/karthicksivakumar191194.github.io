@@ -39,9 +39,10 @@ class Router {
   init() {
     this.routes.some((route) => {
       let regEx = new RegExp(`^${route._uri}$`);
-	  console.log(regEx, "zzzzz");
-	  console.log(path, "xxxxx");
       let path = window.location.pathname;
+
+		console.log(regEx, "zzzzz");
+	  console.log(path, "xxxxx");
 
       if (path.match(regEx)) {
         // our route logic is true, return the corresponding callback
