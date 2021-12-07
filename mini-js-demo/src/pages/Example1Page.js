@@ -6,7 +6,7 @@ import Example1Template from "../templates/Example1Template.js";
 const Example1Page = new Page(
   "example1_page",
   {
-    name: "Mini.js",
+    name: "Dynamic Data Example",
   },
   Example1Template
 );

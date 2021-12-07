@@ -8,11 +8,11 @@ const Example2Page = new Page(
   {
     posts: [
       {
-        title: "Mini",
-        text: "Mini is a custom JS library!",
+        title: "Loop 1",
+        text: "Mini.js is a custom JS library!",
       },
       {
-        title: "Looping Example",
+        title: "Loop 2",
         text: "This page is a demo of how looping works...",
       },
     ],
